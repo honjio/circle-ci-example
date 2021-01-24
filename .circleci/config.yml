@@ -1,17 +1,21 @@
 version: 2.1
+executors:
+  frontend_exector:
+    docker:
+      - circleci/node:14.15.4
+
 jobs:
   build-01:
-    docker:
-      - image: circleci/node:14.15.4
+    executor: frontend_exector
     steps:
       - checkout
       - run: echo "hello world 01"
   build-02:
-    docker:
-      - image: circleci/node:14.15.4
+    executor: frontend_exector
     steps:
       - checkout
       - run: echo "hello world 02"
+
 # ver 2.1 では workflows への version 指定は必要なし
 workflows:
   build-01-02:
