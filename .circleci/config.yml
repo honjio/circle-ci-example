@@ -1,8 +1,21 @@
 version: 2.1
 jobs:
-  build:
+  build-01:
     docker:
-      - image: circleci/node:4.8.2
+      - image: circleci/node:14.15.4
     steps:
       - checkout
-      - run: echo "hello world"
+      - run: echo "hello world 01"
+  build-02:
+    docker:
+      - image: circleci/node:14.15.4
+    steps:
+      - checkout
+      - run: echo "hello world 02"
+# ver 2.1 では workflows への version 指定は必要なし
+workflows:
+  build-01-02:
+    jobs:
+      - build-01
+      - build-02
+
