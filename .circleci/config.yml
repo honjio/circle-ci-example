@@ -16,10 +16,3 @@ jobs:
       - checkout
       - run: echo "hello world 02"
 
-# ver 2.1 では workflows への version 指定は必要なし
-workflows:
-  build-01-02:
-    jobs:
-      - build-01
-      - build-02
-
