@@ -9,18 +9,19 @@ jobs:
     executor: frontend_exector
     steps:
       - checkout
-      - run: echo ${EXAMPLE_VALUE}
+      - run: echo $EXAMPLE_VALUE
   build-02:
     executor: frontend_exector
     steps:
       - checkout
-      - run: echo ${PROJECT_EXAMPLE}
+      - run: echo $PROJECT_EXAMPLE
 
 # ver 2.1 では workflows への version 指定は必要なし
 workflows:
   build-01-02:
     jobs:
       - build-01:
-        context: EXAMPLE
+        context:
+          - EXAMPLE
       - build-02
 
