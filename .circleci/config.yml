@@ -9,7 +9,7 @@ jobs:
     executor: frontend_exector
     steps:
       - checkout
-      - run: echo $EXAMPLE_VALUE
+      - run: echo "hello world"
   build-02:
     executor: frontend_exector
     steps:
@@ -20,8 +20,5 @@ jobs:
 workflows:
   build-01-02:
     jobs:
-      - build-01:
-        context:
-          - EXAMPLE
+      - build-01
       - build-02
-
