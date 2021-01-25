@@ -14,7 +14,7 @@ jobs:
     executor: frontend_exector
     steps:
       - checkout
-      - run: echo $PROJECT_EXAMPLE
+      - run: echo ${PROJECT_VALUE}
 
 # ver 2.1 では workflows への version 指定は必要なし
 workflows:
