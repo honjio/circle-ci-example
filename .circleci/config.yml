@@ -5,11 +5,11 @@ executors:
       - image: circleci/node:14.15.4
 
 jobs:
-  build-01:
+  build:
     executor: frontend_exector
     steps:
       - checkout
-      - run: echo ${EXAMPLE_VALUE}
+      - run: echo "hello"
   build-02:
     executor: frontend_exector
     steps:
@@ -17,15 +17,15 @@ jobs:
       - run: echo ${PROJECT_VALUE}
 
 # ver 2.1 では workflows への version 指定は必要なし
-workflows:
-  build-01-02:
-    jobs:
-      - build-01:
-          context: EXAMPLE
-      - build-02:
-          requires:
-            - build-01
-          filters:
-            branches:
-              only: main
+# workflows:
+#   build-01-02:
+#     jobs:
+#       - build-01:
+#           context: EXAMPLE
+#       - build-02:
+#           requires:
+#             - build-01
+#           filters:
+#             branches:
+#               only: main
 
