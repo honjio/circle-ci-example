@@ -22,9 +22,9 @@ workflows:
     jobs:
       - build-01
       - build-02:
-      requires:
-        - build-01
-      filters:
-        branches:
-          only: main
+          requires:
+            - build-01
+          filters:
+            branches:
+              only: main
 
