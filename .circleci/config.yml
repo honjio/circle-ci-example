@@ -21,4 +21,10 @@ workflows:
   build-01-02:
     jobs:
       - build-01
-      - build-02
+      - build-02:
+      requires:
+        - build-01
+      filters:
+        branches:
+          only: main
+
