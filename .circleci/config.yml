@@ -16,16 +16,19 @@ jobs:
       - checkout
       - run: echo ${PROJECT_VALUE}
 
-# ver 2.1 では workflows への version 指定は必要なし
-# workflows:
-#   build-01-02:
-#     jobs:
-#       - build-01:
-#           context: EXAMPLE
-#       - build-02:
-#           requires:
-#             - build-01
-#           filters:
-#             branches:
-#               only: main
+#ver 2.1 では workflows への version 指定は必要なし
+workflows:
+  build-01-02:
+    jobs:
+      - build-01:
+          context: EXAMPLE
+          filters:
+            branches:
+              only: main
+      - build-02:
+          requires:
+            - build-01
+          filters:
+            branches:
+              only: main
 
