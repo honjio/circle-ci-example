@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: echo ${EXAMPLE_VALUE}
-      - run: sed -i '' 's/apple/orange/g' ./sample.txt
+      - run: sed -i 's/apple/orange/g' ./sample.txt
       - run: cat ./sample.txt
   build-02:
     executor: frontend_exector
