@@ -9,7 +9,9 @@ jobs:
     executor: frontend_exector
     steps:
       - checkout
-      - run: echo "hello"
+      - run: echo ${EXAMPLE_VALUE}
+      - run: sed -i '' 's/apple/orange/g' ./sample.txt
+      - run: cat ./sample.txt
   build-02:
     executor: frontend_exector
     steps:
