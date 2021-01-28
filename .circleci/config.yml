@@ -5,7 +5,7 @@ executors:
       - image: circleci/node:14.15.4
 
 jobs:
-  build:
+  build-01:
     executor: frontend_exector
     steps:
       - checkout
